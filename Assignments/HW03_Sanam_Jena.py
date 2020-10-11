@@ -4,6 +4,8 @@ CWID:10454295
 Date: 25 Sept 2020
 Objective: A simple fraction calculator in which a fraction is created based on input of the user and mathematical operations are performed of users's choice.
 1. Rename the previous function names and remove print statements
+2. Added simplify method inside class Fraction to simplify the fraction as part of HW04. (Updated 02 October 2020)
+3. Added GCD(Greatest Common Divisor) method to calculate the GCD inorder to help in simplifying the fraction as part of HW04. (Updated 02 October 2020)
 """
 
 
@@ -117,6 +119,46 @@ class Fraction:
             bool
         """
         return self.numerator * other.denominator >= self.denominator * other.numerator
+
+    def gcd(self, numerator: int, denominator: int) -> int:
+        """[In this function, we are calculating the GCD(Greatest Common Divisor) otherwise known as HCF(Highest Common Factor) and returning the same to be used by
+        simplify function in order to simplify the fraction.]
+
+        Args:
+            numerator (int)
+            denominator (int)
+
+        Returns:
+            hcf (int)
+
+        Explanation:
+            Here we will be looping until Denominator becomes zero. The statement numerator, Denominator = Denominator, numerator % Denominator does swapping of values,
+            in each iteration we replace the value of denominator in numerator and the remainder (numerator % denominator) in denominator simultaneously.
+            When denominator becomes zero, we have GCD in numerator. This method of calculation of GCD is known as Euclidean Algorithm the time complexity of this is comparatively less.
+            Using this uppon approval from Prof. Raz.
+        """
+        while(denominator):
+            numerator, denominator = denominator, numerator % denominator
+        return numerator
+
+    def simplify(self) -> "Fraction":
+        """[In this function, we are performing the actual simplification of the fraction by using the value of GCD.]
+        """
+        if((self.numerator > 0) and (self.denominator < 0)):
+            x = self.gcd(abs(self.numerator), abs(self.denominator))
+            numerator1: float = -(self.numerator/x)
+            denominator1: float = -(self.denominator/x)
+            return Fraction(numerator1, denominator1)
+        elif((self.numerator < 0) and (self.denominator < 0)):
+            x = self.gcd(abs(self.numerator), abs(self.denominator))
+            numerator1: float = -(self.numerator/x)
+            denominator1: float = -(self.denominator/x)
+            return Fraction(numerator1, denominator1)
+        else:
+            x = self.gcd(abs(self.numerator), abs(self.denominator))
+            numerator1: float = self.numerator/x
+            denominator1: float = self.denominator/x
+            return Fraction(numerator1, denominator1)
 
     def __str__(self) -> str:
         """

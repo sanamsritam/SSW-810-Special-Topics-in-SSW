@@ -3,6 +3,7 @@ Author: Sanam Jena
 CWID:10454295
 Date: 25 Sept 2020
 Objective: To write test class for HW2
+1. Added new test cases for testing simplify function added in HW03. (Updated on 02 October 2020)
 """
 
 import unittest
@@ -146,10 +147,50 @@ class TestFraction(unittest.TestCase):
         self.assertEqual(f12.__ge__(f34), False)
 
     def test14_str(self) -> None:
-        """[(In this function, we will be checking if the working of the __str__ function)]
+        """[In this function, we will be checking if the working of the __str__ function]
         """
         f13: "Fraction" = Fraction(1, 3)
         self.assertEqual(str(f13), "1/3")
+
+    def test15_simplify(self) -> None:
+        """[In this function, we will be checking possitive fractions for simplification]
+        """
+        str1 = Fraction(200, 100).simplify().__str__()
+        str2 = Fraction(2, 1).simplify().__str__()
+        self.assertEqual(str1, str2)
+
+    def test16_simplify(self) -> None:
+        """[In this function, we will be checking fractions with negative numerator for simplification]
+        """
+        str1 = Fraction(-200, 100).simplify().__str__()
+        str2 = Fraction(-2, 1).simplify().__str__()
+        self.assertEqual(str1, str2)
+
+    def test17_simplify(self) -> None:
+        """[In this function, we will be checking fractions with negative denominator for simplification]
+        """
+        str1 = Fraction(200, -100).simplify().__str__()
+        str2 = Fraction(2, -1).simplify().__str__()
+        self.assertEqual(str1, str2)
+
+    def test18_simplify(self) -> None:
+        """[In this function, we will be checking fractions with negative numerator & denominator for simplification]
+        """
+        str1 = Fraction(-200, -100).simplify().__str__()
+        str2 = Fraction(2, 1).simplify().__str__()
+        self.assertEqual(str1, str2)
+
+    def test19_simplify(self) -> None:
+        """[In this function, we will be checking all the cases which should evaluate to false.]
+        """
+        str1 = Fraction(200, 100).simplify().__str__()
+        str2 = Fraction(1, 4).simplify().__str__()
+        str3 = Fraction(-2, 1).simplify().__str__()
+        str4 = Fraction(-200, 100).simplify().__str__()
+        str5 = Fraction(-2, -1).simplify().__str__()
+        self.assertNotEqual(str1, str2)
+        self.assertNotEqual(str1, str3)
+        self.assertNotEqual(str4, str5)
 
 
 if __name__ == '__main__':
