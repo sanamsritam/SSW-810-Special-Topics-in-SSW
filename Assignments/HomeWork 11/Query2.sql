@@ -1,0 +1,1 @@
+select Major, count(*) as 'Total_no_of_Students' from students group by Major
