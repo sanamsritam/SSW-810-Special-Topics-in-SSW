@@ -60,13 +60,28 @@ class HW10TestCase(unittest.TestCase):
                                     "['SSW 564', 'SSW 567', 'SSW 687']", "['SSW 689']",
                                     "['SSW 540']", "['SYS 611', 'SYS 750', 'SYS 800']",
                                     '[]', "['SYS 611', 'SYS 645']", "['SSW 540']"]
-        test_re: List[List[str]] = ['[]', '[]', "['CS 501', 'CS 513', 'CS 545']",
+        test_re: List[List[str]] = ['[]',
+                                    '[]',
                                     "['CS 501', 'CS 513', 'CS 545']",
-                                    "['CS 501', 'CS 513', 'CS 545']", '[]', "['SSW 540', 'SSW 565', 'SSW 810']", '[]', "['SSW 540', 'SSW 565', 'SSW 810']", '[]']
+                                    "['CS 501', 'CS 513', 'CS 545']",
+                                    "['CS 501', 'CS 513', 'CS 545']",
+                                    '[]',
+                                    "['SSW 540', 'SSW 565', 'SSW 810']",
+                                    '[]',
+                                    "['SSW 540', 'SSW 565', 'SSW 810']",
+                                    '[]']
         test_gpa: List[float] = ['3.44', '3.81', '3.88', '3.58',
                                  '4.00', '3.00', '3.92', '0.0', '3.00', '4.00']
-        test_rr: List[List[str]] = ["['SSW 540', 'SSW 555']", "['SSW 540', 'SSW 555']", "['SSW 540', 'SSW 564']", "['SSW 540', 'SSW 555']", "['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567']",
-                                    "['SYS 612', 'SYS 671', 'SYS 800']", "['SYS 612', 'SYS 671']", "['SYS 612', 'SYS 671', 'SYS 800']", "['SYS 612', 'SYS 671', 'SYS 800']", "['SYS 612', 'SYS 671', 'SYS 800']"]
+        test_rr: List[List[str]] = ["['SSW 540', 'SSW 555']",
+                                    "['SSW 540', 'SSW 555']",
+                                    "['SSW 540', 'SSW 564']",
+                                    "['SSW 540', 'SSW 555']",
+                                    "['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567']",
+                                    "['SYS 612', 'SYS 671', 'SYS 800']",
+                                    "['SYS 612', 'SYS 671']",
+                                    "['SYS 612', 'SYS 671', 'SYS 800']",
+                                    "['SYS 612', 'SYS 671', 'SYS 800']",
+                                    "['SYS 612', 'SYS 671', 'SYS 800']"]
         self.assertEqual(cwid, test_cwid)
         self.assertEqual(name, test_name)
         self.assertEqual(major, test_major)
@@ -96,14 +111,58 @@ class HW10TestCase(unittest.TestCase):
             course.append(row.get_string(fields=["Course"]).strip())
             count.append(row.get_string(fields=["Count"]).strip())
 
-        test_cwid: List[str] = ['98765', '98765', '98764', '98764', '98764',
-                                '98764', '98763', '98763', '98760', '98760', '98760', '98760']
-        test_name: List[str] = ['Einstein, A', 'Einstein, A', 'Feynman, R', 'Feynman, R', 'Feynman, R',
-                                'Feynman, R', 'Newton, I', 'Newton, I', 'Darwin, C', 'Darwin, C', 'Darwin, C', 'Darwin, C']
-        test_department: List[str] = ['SFEN', 'SFEN', 'SFEN', 'SFEN',
-                                      'SFEN', 'SFEN', 'SFEN', 'SFEN', 'SYEN', 'SYEN', 'SYEN', 'SYEN']
-        test_course: List[str] = ['SSW 567', 'SSW 540', 'SSW 564', 'SSW 687', 'CS 501',
-                                  'CS 545', 'SSW 555', 'SSW 689', 'SYS 800', 'SYS 750', 'SYS 611', 'SYS 645']
+        test_cwid: List[str] = [
+            '98765',
+            '98765',
+            '98764',
+            '98764',
+            '98764',
+            '98764',
+            '98763',
+            '98763',
+            '98760',
+            '98760',
+            '98760',
+            '98760']
+        test_name: List[str] = [
+            'Einstein, A',
+            'Einstein, A',
+            'Feynman, R',
+            'Feynman, R',
+            'Feynman, R',
+            'Feynman, R',
+            'Newton, I',
+            'Newton, I',
+            'Darwin, C',
+            'Darwin, C',
+            'Darwin, C',
+            'Darwin, C']
+        test_department: List[str] = [
+            'SFEN',
+            'SFEN',
+            'SFEN',
+            'SFEN',
+            'SFEN',
+            'SFEN',
+            'SFEN',
+            'SFEN',
+            'SYEN',
+            'SYEN',
+            'SYEN',
+            'SYEN']
+        test_course: List[str] = [
+            'SSW 567',
+            'SSW 540',
+            'SSW 564',
+            'SSW 687',
+            'CS 501',
+            'CS 545',
+            'SSW 555',
+            'SSW 689',
+            'SYS 800',
+            'SYS 750',
+            'SYS 611',
+            'SYS 645']
         test_count: List[str] = ['4', '3', '3', '3',
                                  '1', '1', '1', '1', '1', '1', '2', '1']
         self.assertEqual(cwid, test_cwid)
