@@ -70,7 +70,13 @@ class Student:
     field_name: List[str] = ["Cwid", "Name", "Major", "Completed Courses",
                              "Remaining Required", "Remaining Elective", "GPA"]
 
-    def __init__(self, cwid: str, name: str, major: str, required: List[str], electives: List[str]) -> None:
+    def __init__(
+            self,
+            cwid: str,
+            name: str,
+            major: str,
+            required: List[str],
+            electives: List[str]) -> None:
         """In this method, we will be initializing all the fields related to a student.
 
         Args:
@@ -253,11 +259,8 @@ class Repository:
         In this method, we will be reading the grades of each student.
         """
         try:
-            for stud_cwid, course, grade, prof_cwid in file_reader(os.path.join
-                                                                   (self._path,
-                                                                    "grades.txt"),
-                                                                   4, sep='|',
-                                                                   header=True):
+            for stud_cwid, course, grade, prof_cwid in file_reader(
+                    os.path.join(self._path, "grades.txt"), 4, sep='|', header=True):
                 if stud_cwid in self._students:
                     # handle the key error if a new student
                     s: Student = self._students[stud_cwid]

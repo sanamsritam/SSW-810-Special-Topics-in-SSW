@@ -39,7 +39,7 @@ def play_game() -> bool:
     """ play Rock/Paper/Scissors
         The human may enter 'Q' or 'q' any time to stop the game.
         Get the human's move, the computer's move, and print a message with the winner.
-        Return a bool to specify if the human wants to play again, 
+        Return a bool to specify if the human wants to play again,
         i.e. False when the human wants to quit or True to play again
     """
     human: str = get_human_move()

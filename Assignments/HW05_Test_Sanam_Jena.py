@@ -55,8 +55,14 @@ class HomeWork05Test(unittest.TestCase):
         """
         test: HomeWork05 = HomeWork05("")
         file_name: str = '/Users/sanam/Documents/Desk/SSW 810 B/Assignments/test1.txt'
-        expect: List[str] = ['<line0>', '<line1>', '<line2>',
-                             '<line3.1 line3.2 line3.3>', '<line4.1 line4.2>', '<line5>', '<line6>']
+        expect: List[str] = [
+            '<line0>',
+            '<line1>',
+            '<line2>',
+            '<line3.1 line3.2 line3.3>',
+            '<line4.1 line4.2>',
+            '<line5>',
+            '<line6>']
         result: List[str] = list(test.get_lines(file_name))
         self.assertEqual(result, expect)
 

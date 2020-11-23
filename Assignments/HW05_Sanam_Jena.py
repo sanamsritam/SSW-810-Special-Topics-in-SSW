@@ -40,7 +40,7 @@ class HomeWork05:
         if len(s) < 1:
             return -1
         for i in range(len(s)):
-            if(s[i:i+len(target)] == target):
+            if(s[i:i + len(target)] == target):
                 return i
         return -1
 
@@ -55,7 +55,7 @@ class HomeWork05:
             int: index/position
         """
         start: int = self.substring(target, string)
-        result: int = string.find(target, start+1)
+        result: int = string.find(target, start + 1)
         return result
 
     def get_lines(self, path: str) -> Iterator[str]:
@@ -80,9 +80,10 @@ class HomeWork05:
                     while line.endswith('\\'):
                         slashpointer: int = line.find('\\')
                         # In this line, we are adding spaces manually
-                        line = line[:slashpointer]+" "
+                        line = line[:slashpointer] + " "
                         line = line[:-1] + fp.readline().strip('\n')
-                    # In this line we are removing all the lines that begin with #
+                    # In this line we are removing all the lines that begin
+                    # with #
                     line = line.split('#', 1)[0].strip('\n')
                     if line:
                         yield line
@@ -90,7 +91,8 @@ class HomeWork05:
                         continue
 
     def __init__(self, s: str) -> None:
-        if not isinstance(s, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                s, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input must be of type string")
         """if len(s) < 1:  # If string is empty, raise ValueError
             raise ValueError("Input can not be an empty string!")"""
@@ -111,7 +113,7 @@ if __name__ == '__main__':
 # 1)
 s = "hello"
 for i in range(len(s)):
-    print(s[i:i+1])
+    print(s[i:i + 1])
 # 2)
 s = "hello"
 for i in s:
@@ -120,5 +122,5 @@ for i in s:
 s = "hello"
 i: int = 0
 while i < len(s):
-    print(s[i:i+1])
-    i = i+1
+    print(s[i:i + 1])
+    i = i + 1

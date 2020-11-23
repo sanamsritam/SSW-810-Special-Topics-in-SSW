@@ -24,7 +24,8 @@ class HomeWork06:
         Returns:
             List[Any]
         """
-        if not isinstance(l, List):  # If the input is not of type 'List', raise ValueError
+        if not isinstance(
+                l, List):  # If the input is not of type 'List', raise ValueError
             raise ValueError("Input l must be of type List")
         return [i for i in l]
 
@@ -38,9 +39,11 @@ class HomeWork06:
         Returns:
             List[Any]: New List with intersection elements
         """
-        if not isinstance(l1, List):  # If the input is not of type 'List', raise ValueError
+        if not isinstance(
+                l1, List):  # If the input is not of type 'List', raise ValueError
             raise ValueError("Input l1 must be of type List")
-        if not isinstance(l2, List):  # If the input is not of type 'List', raise ValueError
+        if not isinstance(
+                l2, List):  # If the input is not of type 'List', raise ValueError
             raise ValueError("Input l2 must be of type List")
         return [i for i in l1 if i in l2]
 
@@ -54,9 +57,11 @@ class HomeWork06:
         Returns:
             List[Any]: new list with values that are in l1 but not in l2.
         """
-        if not isinstance(l1, List):  # If the input is not of type 'List', raise ValueError
+        if not isinstance(
+                l1, List):  # If the input is not of type 'List', raise ValueError
             raise ValueError("Input l1 must be of type List")
-        if not isinstance(l2, List):  # If the input is not of type 'List', raise ValueError
+        if not isinstance(
+                l2, List):  # If the input is not of type 'List', raise ValueError
             raise ValueError("Input l2 must be of type List")
         return [i for i in l1 if i not in l2]
 
@@ -70,9 +75,12 @@ class HomeWork06:
         Returns:
             str: result containing words that do not begin with vowels.
         """
-        if not isinstance(string, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                string,
+                str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input string must be of type str")
-        return " ".join([words for words in string.split() if words[0] not in "aeiouAEIOU"])
+        return " ".join([words for words in string.split()
+                         if words[0] not in "aeiouAEIOU"])
 
     def check_pwd(self, password: str) -> bool:
         """This function takes a string as a parameter and returns a boolean value.
@@ -87,7 +95,9 @@ class HomeWork06:
         Returns:
             bool: return true or false based on criteria
         """
-        if not isinstance(password, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                password,
+                str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input password must be of type str")
         return len(password) >= 4 \
             and password[0].isdigit() \
@@ -144,5 +154,5 @@ class DonutQueue:
         """
         result: str = ""
         for i in self.queue:
-            result += i[0]+", "
+            result += i[0] + ", "
         return result[:-2]

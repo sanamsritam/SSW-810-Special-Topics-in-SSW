@@ -27,7 +27,9 @@ class Fraction:
         if self.denominator == 0:
             raise ValueError("denominator cannot be 0")
 
-    def set_common_denominator(self, other: "Fraction") -> ("Fraction", "Fraction"):
+    def set_common_denominator(self,
+                               other: "Fraction") -> ("Fraction",
+                                                      "Fraction"):
         """
             returns a pair of new Fractions with a common denominator (this may not be the Least Common Denominator).
             This is computed by:
@@ -35,8 +37,12 @@ class Fraction:
             -multiplying the numerator/denominator of other by the denominator of self
         """
         if self.denominator != other.denominator:  # multiply each fraction by the other's denominator
-            fraction1: Fraction = Fraction(self.numerator * other.denominator, self.denominator * other.denominator)
-            fraction2: Fraction = Fraction(other.numerator * self.denominator, other.denominator * self.denominator)
+            fraction1: Fraction = Fraction(
+                self.numerator * other.denominator,
+                self.denominator * other.denominator)
+            fraction2: Fraction = Fraction(
+                other.numerator * self.denominator,
+                other.denominator * self.denominator)
             return fraction1, fraction2
         else:  # already have a common denominator
             return self, other
@@ -44,13 +50,19 @@ class Fraction:
     def plus(self, other: "Fraction") -> "Fraction":
         """ returns a new instance of class Fraction with the sum of self and other where other is another Fraction """
         fraction1, fraction2 = self.set_common_denominator(other)
-        return Fraction(fraction1.numerator + fraction2.numerator, fraction1.denominator)
+        return Fraction(
+            fraction1.numerator +
+            fraction2.numerator,
+            fraction1.denominator)
 
     def minus(self, other: "Fraction") -> "Fraction":
         """ return a new instance of class Fraction with the difference of self and other where other is another
         Fraction """
         fraction1, fraction2 = self.set_common_denominator(other)
-        return Fraction(fraction1.numerator - fraction2.numerator, fraction1.denominator)
+        return Fraction(
+            fraction1.numerator -
+            fraction2.numerator,
+            fraction1.denominator)
 
     def times(self, other: "Fraction") -> "Fraction":
         """ return a new instance of class Fraction with the product of self and other where other is another
@@ -73,7 +85,11 @@ class Fraction:
 
     def equal(self, other: "Fraction") -> bool:
         """ return True/False if the two fractions are equal """
-        return (self.numerator * other.denominator) == (other.numerator * self.denominator)
+        return (
+            self.numerator *
+            other.denominator) == (
+            other.numerator *
+            self.denominator)
 
     def __str__(self) -> str:
         return f"{self.numerator}/{self.denominator}"
@@ -87,7 +103,8 @@ def test_suite() -> None:
         f10: Fraction = Fraction(1, 0)
     except ValueError as e:
         if e.__str__() == "denominator cannot be 0":
-            print("The exception for initializing an instance with denominator 0 is successful")
+            print(
+                "The exception for initializing an instance with denominator 0 is successful")
 
     f12: Fraction = Fraction(1, 2)
     f34: Fraction = Fraction(3, 4)
@@ -152,7 +169,8 @@ def get_operator(prompt: str) -> str:
         if inp in ['+', '-', '*', '/', '==']:
             return inp
         else:
-            print(f"Error: '{inp}' is not a valid operator. Please try again...")
+            print(
+                f"Error: '{inp}' is not a valid operator. Please try again...")
 
 
 def compute(f1: Fraction, operator: str, f2: Fraction) -> "Fraction":
@@ -184,7 +202,9 @@ def main() -> None:
     print("Welcome to the fraction calculator!")
     while True:
         try:
-            f1: Fraction = Fraction(get_number("Fraction 1 numerator: "), get_number("Fraction 1 denominator: "))
+            f1: Fraction = Fraction(
+                get_number("Fraction 1 numerator: "),
+                get_number("Fraction 1 denominator: "))
             break
         except ValueError as e:
             print(f"{e}, please try again")
@@ -193,7 +213,9 @@ def main() -> None:
 
     while True:
         try:
-            f2: Fraction = Fraction(get_number("Fraction 2 numerator: "), get_number("Fraction 2 denominator: "))
+            f2: Fraction = Fraction(
+                get_number("Fraction 2 numerator: "),
+                get_number("Fraction 2 denominator: "))
             break
         except ValueError as e:
             print(f"{e}, please try again")

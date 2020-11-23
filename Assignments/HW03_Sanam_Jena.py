@@ -38,8 +38,8 @@ class Fraction:
         """
         In this function, we will be taking two fractions and subtracting the second fraction from the first fraction and returning the final result as a Fraction.
         """
-        resnum: float = (self.numerator*other.denominator) - \
-            (self.denominator*other.numerator)
+        resnum: float = (self.numerator * other.denominator) - \
+            (self.denominator * other.numerator)
         resden: float = self.denominator * other.denominator
         return Fraction(resnum, resden)
 
@@ -146,18 +146,18 @@ class Fraction:
         """
         if((self.numerator > 0) and (self.denominator < 0)):
             x = self.gcd(abs(self.numerator), abs(self.denominator))
-            numerator1: float = -(self.numerator/x)
-            denominator1: float = -(self.denominator/x)
+            numerator1: float = -(self.numerator / x)
+            denominator1: float = -(self.denominator / x)
             return Fraction(numerator1, denominator1)
         elif((self.numerator < 0) and (self.denominator < 0)):
             x = self.gcd(abs(self.numerator), abs(self.denominator))
-            numerator1: float = -(self.numerator/x)
-            denominator1: float = -(self.denominator/x)
+            numerator1: float = -(self.numerator / x)
+            denominator1: float = -(self.denominator / x)
             return Fraction(numerator1, denominator1)
         else:
             x = self.gcd(abs(self.numerator), abs(self.denominator))
-            numerator1: float = self.numerator/x
-            denominator1: float = self.denominator/x
+            numerator1: float = self.numerator / x
+            denominator1: float = self.denominator / x
             return Fraction(numerator1, denominator1)
 
     def __str__(self) -> str:

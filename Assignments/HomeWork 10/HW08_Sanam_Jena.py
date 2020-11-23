@@ -33,10 +33,14 @@ def date_arithmetic() -> Tuple[datetime, datetime, int]:
     days_passed_02012019_09302019: int = (
         datetime(2019, 9, 30) - datetime(2019, 2, 1)).days
 
-    return (three_days_after_02272020, three_days_after_02272019, days_passed_02012019_09302019)
+    return (
+        three_days_after_02272020,
+        three_days_after_02272019,
+        days_passed_02012019_09302019)
 
 
-def file_reader(path: str, fields: int, sep: str = ',', header: bool = False) -> Iterator[List[str]]:
+def file_reader(path: str, fields: int, sep: str = ',',
+                header: bool = False) -> Iterator[List[str]]:
     """In this function, we will implement a generator that will yield
     new line of a file on call of next
 

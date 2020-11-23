@@ -30,9 +30,11 @@ class HomeWork07:
         Returns:
             bool
         """
-        if not isinstance(str1, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                str1, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input str1 must be of type str")
-        if not isinstance(str2, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                str2, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input str2 must be of type str")
         return sorted(list(str1.lower())) == sorted(list(str2.lower()))
 
@@ -46,9 +48,11 @@ class HomeWork07:
         Returns:
             bool: returns true if both str1 and str2 are anagrams
         """
-        if not isinstance(str1, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                str1, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input str1 must be of type str")
-        if not isinstance(str2, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                str2, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input str2 must be of type str")
         dd: defaultdict[str, int] = defaultdict(int)
         for i in str1.lower():
@@ -67,14 +71,16 @@ class HomeWork07:
         Returns:
             bool: returns true if both str1 and str2 are anagrams
         """
-        if not isinstance(str1, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                str1, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input str1 must be of type str")
-        if not isinstance(str2, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                str2, str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input str2 must be of type str")
         return Counter(str1.lower()) == Counter(str2.lower())
 
     def covers_alphabet(self, sentence: str) -> bool:
-        """This function returns True if sentence includes at least one instance of every character in the 
+        """This function returns True if sentence includes at least one instance of every character in the
         alphabet or False using only Python sets. Reffered to
         https://stackoverflow.com/questions/59726206/how-are-these-sets-equal-eli5 and discussed with Rajat Verma.
 
@@ -84,11 +90,14 @@ class HomeWork07:
         Returns:
             bool
         """
-        if not isinstance(sentence, str):  # If the input is not of type 'string', raise ValueError
+        if not isinstance(
+                sentence,
+                str):  # If the input is not of type 'string', raise ValueError
             raise ValueError("Input sentence must be of type str")
         return set(string.ascii_lowercase) <= set(sentence.lower())
 
-    def web_analyzer(self, weblogs: List[Tuple[str, str]]) -> List[Tuple[str, List[str]]]:
+    def web_analyzer(
+            self, weblogs: List[Tuple[str, str]]) -> List[Tuple[str, List[str]]]:
         """This function creates a summary of the weblogs with each distinct site and a sorted list of names of
         distinct people who visited that site. Discussed with Prof Raz & Rajat Verma.
 
@@ -98,9 +107,12 @@ class HomeWork07:
         Returns:
             List[Tuple[str, List[str]]]: each item in the list is a tuple with the employee name and the website he/she visited.
         """
-        if not isinstance(weblogs, List):  # If the input is not of type 'List', raise ValueError
+        if not isinstance(
+                weblogs,
+                List):  # If the input is not of type 'List', raise ValueError
             raise ValueError("Input weblogs must be of type List")
         dd: DefaultDict[str, set[str]] = defaultdict(set)
         for names, webpage in weblogs:
             dd[webpage].add(names)
-        return [(website, sorted(name)) for website, name in sorted(dd.items())]
+        return [(website, sorted(name))
+                for website, name in sorted(dd.items())]

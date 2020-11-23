@@ -35,8 +35,8 @@ class Fraction:
         """
         In this function, we will be taking two fractions and subtracting the second fraction from the first fraction and returning the final result as a Fraction.
         """
-        resnum: float = (self.numerator*other.denominator) - \
-            (self.denominator*other.numerator)
+        resnum: float = (self.numerator * other.denominator) - \
+            (self.denominator * other.numerator)
         resden: float = self.denominator * other.denominator
         return Fraction(resnum, resden)
 
